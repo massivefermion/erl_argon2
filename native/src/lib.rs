@@ -13,7 +13,7 @@ mod atoms {
     }
 }
 
-#[rustler::nif]
+#[rustler::nif(schedule = "DirtyCpu")]
 fn hash<'a>(env: Env<'a>, password: &str) -> NifResult<Term<'a>> {
     let salt = SaltString::generate(&mut OsRng);
     let argon2 = Argon2::default();
@@ -23,7 +23,7 @@ fn hash<'a>(env: Env<'a>, password: &str) -> NifResult<Term<'a>> {
     };
 }
 
-#[rustler::nif]
+#[rustler::nif(schedule = "DirtyCpu")]
 fn verify<'a>(env: Env<'a>, password: &str, password_hash: &str) -> NifResult<Term<'a>> {
     match PasswordHash::new(password_hash) {
         Ok(parsed_hash) => {

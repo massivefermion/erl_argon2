@@ -1,16 +1,29 @@
 -module(argon2).
 
--export([hash/1, verify/2]).
+-export([hash/1, hash/2, hash_with_secret/2, hash_with_secret/3, verify/2,
+         verify_with_secret/3]).
 
 -on_load init/0.
 
 -define(APPNAME, ?MODULE).
 -define(LIBNAME, "argon2").
 
-hash(_) ->
+hash(Password) ->
+    hash(Password, argon2id).
+
+hash_with_secret(Password, Secret) ->
+    hash_with_secret(Password, argon2id, Secret).
+
+hash(_, _) ->
+    not_loaded(?LINE).
+
+hash_with_secret(_, _, _) ->
     not_loaded(?LINE).
 
 verify(_, _) ->
+    not_loaded(?LINE).
+
+verify_with_secret(_, _, _) ->
     not_loaded(?LINE).
 
 init() ->

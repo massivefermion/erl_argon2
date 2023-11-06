@@ -1,13 +1,13 @@
 [package]
 name = "argon2"
-version = "0.1.0"
+version = "0.2.0"
 
 [lib]
+crate-type = ["dylib"]
 name = "argon2"
 path = "src/lib.rs"
-crate-type = ["dylib"]
 
 [dependencies]
-rustler = "0.24.0"
-argon2 = "0.3.4"
-rand_core = { version = "0.6", features = ["std"] }
+argon2 = "0.5"
+rand_core = {version = "0.6", features = ["std"]}
+rustler = "0.30"

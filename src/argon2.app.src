@@ -1,14 +1,15 @@
-{application,
- argon2,
- [{description, "nifs for hashing and verifying passwords using argon2"},
-  {vsn, "1.0.2"},
-  {registered, []},
-  {applications, []},
-  {files, ["native/*", "src/*", "rebar.config", "LICENSE", "README.md"]},
-  {env, []},
-  {modules, []},
-  {licenses, ["Apache 2.0"]},
-  {links,
-   [{"GitHub", "https://github.com/massivefermion/erl_argon2"},
-    {"argon2", "https://en.wikipedia.org/wiki/Argon2"},
-    {"RustCrypto:Argon2", "https://crates.io/crates/argon2"}]}]}.
+{application, argon2, [
+    {description, "nifs for hashing and verifying passwords using argon2"},
+    {vsn, "1.1.0"},
+    {registered, []},
+    {applications, [kernel, stdlib]},
+    {files, ["native/*", "src/*", "rebar.config", "LICENSE", "README.md"]},
+    {env, []},
+    {modules, []},
+    {licenses, ["Apache 2.0"]},
+    {links, [
+        {"GitHub", "https://github.com/massivefermion/erl_argon2"},
+        {"argon2", "https://en.wikipedia.org/wiki/Argon2"},
+        {"RustCrypto:Argon2", "https://crates.io/crates/argon2"}
+    ]}
+]}.

@@ -1,6 +1,6 @@
 {application, argon2, [
     {description, "nifs for hashing and verifying passwords using argon2"},
-    {vsn, "1.1.0"},
+    {vsn, "1.2.0"},
     {registered, []},
     {applications, [kernel, stdlib]},
     {files, ["native/*", "src/*", "rebar.config", "LICENSE", "README.md"]},

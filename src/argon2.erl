@@ -19,23 +19,20 @@ hash_with_secret(Password, Secret) ->
     hash_with_secret(Password, argon2id, Secret).
 
 hash(_, _) ->
-    not_loaded(?LINE).
+    erlang:nif_error(nif_not_loaded).
 
 hash_with_secret(_, _, _) ->
-    not_loaded(?LINE).
+    erlang:nif_error(nif_not_loaded).
 
 verify(_, _) ->
-    not_loaded(?LINE).
+    erlang:nif_error(nif_not_loaded).
 
 verify_with_secret(_, _, _) ->
-    not_loaded(?LINE).
+    erlang:nif_error(nif_not_loaded).
 
 init() ->
     SoName = get_so_name(),
     erlang:load_nif(SoName, 0).
-
-not_loaded(Line) ->
-    exit({not_loaded, [{module, ?MODULE}, {line, Line}]}).
 
 get_so_name() ->
     case code:priv_dir(?APPNAME) of
